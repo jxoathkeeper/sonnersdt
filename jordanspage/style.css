@@ -1,0 +1,86 @@
+@font-face{font-family:Operator;src:url('../assets/fornic/8bitoperator.otf.woff2') format('woff2');font-display:swap}
+*{box-sizing:border-box}
+html,body{width:100%;height:100%;margin:0;background:#000;color:#fff}
+body{overflow:hidden;user-select:none;cursor:none;font-smooth:never;-webkit-font-smoothing:none}
+#stage{position:relative;width:100vw;height:100dvh;background:#000;overflow:hidden}
+.scene{position:absolute;inset:0;display:none}
+.scene.active{display:flex}
+.pixel{font-family:Operator,'Courier New',monospace;letter-spacing:0;image-rendering:pixelated}
+.gaster{font-family:Operator,'Courier New',monospace;text-align:center;white-space:pre-wrap;font-size:clamp(25px,2.9vw,50px);line-height:1.45;letter-spacing:.06em;text-shadow:0 0 4px currentColor}
+#opening{color:#00ff00;display:none;position:absolute;inset:0}
+#opening.active{display:block}
+#opening-text{position:absolute;top:16.8%;left:0;width:100%;max-width:none;min-height:1.6em;text-align:center;transform:translateY(-50%)}
+#choice{position:absolute;top:50%;left:0;width:100%;height:52px;margin:0;transform:translateY(-50%);opacity:0}
+#choice.visible{opacity:1}
+.choices{position:absolute;inset:0;width:100%;height:100%;display:block;font:clamp(31px,2.4vw,44px)/1 Operator,monospace;color:#00ff00}
+.choices span{position:absolute;top:50%;display:block;min-width:0;white-space:pre;text-align:left;transform:translateY(-50%)}
+.choices [data-choice="YES"]{left:13.8%}
+.choices [data-choice="NO"]{left:83.4%}
+#soul{position:absolute;left:50%;top:50%;width:34px;height:34px;image-rendering:pixelated;transform:translate(-50%,-50%);opacity:0;transition:none}
+#archive{align-items:flex-start;justify-content:center;overflow:hidden;background:#000}
+#archive-depths{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.72;filter:grayscale(1) brightness(.12) contrast(.95);z-index:1}
+#archive-inner{width:min(760px,88vw);padding:18px 0 0;height:100%}
+#archive-heading{text-align:center;font:clamp(24px,2.6vw,46px)/1 Operator,monospace;margin:0 0 38px;letter-spacing:.02em;white-space:nowrap}
+#archive-heading img{width:42px;height:42px;object-fit:contain;vertical-align:text-bottom;image-rendering:pixelated;margin-left:10px}
+#archive-lines{margin:0 auto;width:min(620px,100%);font:clamp(21px,2vw,35px)/1.95 Operator,monospace;white-space:pre-wrap;padding-left:0}
+#archive-lines p{margin:0 0 1.04em;min-height:1em}
+#depths{align-items:center;justify-content:center}
+#depths-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 2.4s linear;filter:brightness(.72)}
+#depths-image.visible{opacity:.9}
+#depths-dialogue{z-index:1;max-width:90vw;color:#fff;font-size:clamp(24px,2.2vw,42px);line-height:1.5;text-shadow:0 0 4px #fff,0 0 12px #888}
+#hint{position:absolute;bottom:18px;right:24px;font:12px Operator,monospace;color:#777;opacity:0;transition:opacity .6s;pointer-events:none}
+#hint.visible{opacity:1}
+#hint span{padding:0 7px}
+.fade{transition:opacity 1.2s ease;opacity:0!important}
+@media(max-width:900px){
+  #archive-inner{width:88vw;padding-top:20px}
+  #archive-heading img{width:32px;height:32px;margin-left:6px}
+  #archive-lines{font-size:22px;line-height:1.85;width:min(560px,100%)}
+  #choice{height:60px}
+  #soul{width:28px;height:28px}
+}
+@media(max-width:600px){
+  #archive-inner{padding-top:16px}
+  #archive-lines{font-size:17px;line-height:1.8}
+  #archive-heading{font-size:24px;margin-bottom:26px}
+  #hint{font-size:10px;right:12px}
+}
+
+#archive-inner{position:relative;z-index:3}
+/* Lightweight CRT/VCR texture, transparent enough to reveal the depths animation. */
+.archive-vcr{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden;opacity:.38;background:repeating-linear-gradient(to bottom,rgba(255,255,255,.028) 0px,rgba(255,255,255,.028) 1px,rgba(0,0,0,.13) 2px,rgba(0,0,0,.13) 4px);animation:archiveScanDrift 9s linear infinite}
+.archive-vcr::before{content:"";position:absolute;inset:-20% 0;background:linear-gradient(to bottom,transparent 0%,rgba(255,255,255,.035) 45%,rgba(255,255,255,.06) 49%,rgba(0,0,0,.08) 53%,transparent 58%);animation:archiveTracking 8s linear infinite}
+@keyframes archiveScanDrift{to{background-position:0 12px}}
+@keyframes archiveTracking{from{transform:translateY(-85%)}to{transform:translateY(85%)}}
+.crossfade-enter{opacity:0;transition:opacity 1.55s ease-in-out}
+.crossfade-enter.crossfade-on{opacity:1}
+.crossfade-exit{opacity:1;transition:opacity 1.55s ease-in-out}
+.crossfade-exit.crossfade-off{opacity:0}
+@font-face{font-family:DeltaruneBoard;src:url('../assets/fornic/AdventureBoard8bit-Regular.woff2') format('woff2');font-display:swap}
+#secret-ending{position:absolute;inset:0;z-index:99;display:none;align-items:center;justify-content:center;
+ background:#000;color:#ff3131;font-family:DeltaruneBoard,Operator,monospace;font-size:clamp(7px,.55vw,10px);
+ letter-spacing:.03em;text-align:center}
+#secret-ending.visible{display:flex}
+
+/* iPhone Safari: visible screen height and safe-area-aware input. */
+html{-webkit-text-size-adjust:100%}body{touch-action:manipulation}#stage{height:100svh;height:100dvh}#archive{overscroll-behavior:contain}#archive-inner{max-height:100%;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;padding-bottom:24px}#archive-inner::-webkit-scrollbar{display:none}
+#mobile-controls{display:none}
+@media (pointer:coarse), (max-width:680px){
+ body{cursor:auto}#stage{min-height:100svh}
+ #opening-text{top:clamp(80px,19dvh,180px);padding-inline:4vw;font-size:clamp(26px,6vw,42px)}
+ #choice{top:48%;height:64px}.choices{font-size:clamp(29px,7vw,40px)}
+ .choices [data-choice="YES"]{left:14%}.choices [data-choice="NO"]{left:auto;right:14%}
+ #soul{width:clamp(26px,8vw,38px);height:clamp(26px,8vw,38px)}
+ #archive-inner{width:100%;padding:clamp(18px,4dvh,34px) 7vw calc(118px + env(safe-area-inset-bottom))}
+ #archive-heading{font-size:clamp(20px,5vw,31px);margin-bottom:clamp(23px,4dvh,36px);white-space:normal;line-height:1.35}
+ #archive-heading img{width:clamp(22px,6vw,33px);height:clamp(22px,6vw,33px)}
+ #archive-lines{width:100%;max-width:600px;font-size:clamp(17px,4.6vw,26px);line-height:1.6;overflow-wrap:anywhere}
+ #archive-lines p{margin-bottom:.65em}
+ #depths-dialogue{max-width:90vw;font-size:clamp(17px,4.7vw,30px);line-height:1.38;overflow-wrap:anywhere}
+ #mobile-controls{position:absolute;z-index:50;bottom:calc(12px + env(safe-area-inset-bottom));left:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding-inline:clamp(12px,4vw,32px);gap:clamp(8px,3vw,20px);pointer-events:none}
+ #mobile-controls button{pointer-events:auto;border:2px solid rgba(255,255,255,.47);border-radius:8px;background:rgba(0,0,0,.8);color:#fff;font:23px Operator,monospace;min-height:52px;min-width:58px;flex:1;max-width:110px;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+ #mobile-controls button:active{background:rgba(255,255,255,.23)}
+ #hint{display:none}
+ #archive-depths{will-change:auto}
+}
+@media (max-height:500px) and (pointer:coarse){#archive-inner{padding-top:8px}#archive-heading{margin-bottom:12px}#mobile-controls button{min-height:42px}}

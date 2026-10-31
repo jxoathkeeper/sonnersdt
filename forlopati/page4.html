@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <script src="../namegate/guard.js" data-experience="lopati"></script>
     <meta charset="UTF-8">
 
     <meta
@@ -14,13 +15,13 @@
     <style>
 @font-face {
             font-family: "VCR OSD Mono";
-            src: url("assets/VCR_OSD_MONO.ttf") format("truetype");
+            src: url("../assets/forlopati/VCR_OSD_MONO.ttf") format("truetype");
             font-display: swap;
         }
 
         @font-face {
             font-family: "EramFont";
-            src: url("assets/Final_Fantasy_I_-_NES.woff2") format("woff2");
+            src: url("../assets/forlopati/Final_Fantasy_I_-_NES.woff2") format("woff2");
             font-weight: normal;
             font-style: normal;
             font-display: swap;
@@ -40,7 +41,7 @@
         }
 
         body {
-            cursor: url("assets/heart.png"), auto;
+            cursor: url("../assets/forlopati/heart.png"), auto;
             user-select: none;
         }
 
@@ -198,7 +199,7 @@
             top: 28.5%;
             height: 18%;
 
-            cursor: url("assets/heart.png"), pointer;
+            cursor: url("../assets/forlopati/heart.png"), pointer;
         }
 
         .door-1 {
@@ -268,7 +269,7 @@
             visibility: hidden;
             pointer-events: none;
 
-            cursor: url("assets/heart.png"), pointer;
+            cursor: url("../assets/forlopati/heart.png"), pointer;
 
             transition:
                 opacity 0.55s ease,
@@ -633,7 +634,7 @@
 
             <img
                 id="doorScreen"
-                src="assets/doors/pg38.png"
+                src="../assets/forlopati/doors/pg38.png"
                 alt="A row of doors"
                 draggable="false"
             >
@@ -708,23 +709,23 @@
     <div id="whiteExit"></div>
 
     <audio id="determinationMusic" preload="auto" loop>
-        <source src="assets/music/determinationpt2.mp3" type="audio/mpeg">
+        <source src="../assets/forlopati/music/determinationpt2.mp3" type="audio/mpeg">
     </audio>
 
     <audio id="eramTalkingSound" preload="auto">
-        <source src="assets/sounds/eram-talking.wav" type="audio/wav">
+        <source src="../assets/forlopati/sounds/eram-talking.wav" type="audio/wav">
     </audio>
 
     <audio id="eramFinishTalkingSound" preload="auto">
-        <source src="assets/sounds/eram-finish-talking.wav" type="audio/wav">
+        <source src="../assets/forlopati/sounds/eram-finish-talking.wav" type="audio/wav">
     </audio>
 
     <audio id="selectSound" preload="auto">
-        <source src="assets/sounds/select.wav" type="audio/wav">
+        <source src="../assets/forlopati/sounds/select.wav" type="audio/wav">
     </audio>
 
     <audio id="cymbalSound" preload="auto">
-        <source src="assets/sounds/title-buildup.ogg" type="audio/ogg">
+        <source src="../assets/forlopati/sounds/title-buildup.ogg" type="audio/ogg">
     </audio>
 
     <script>

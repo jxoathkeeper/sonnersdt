@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="../namegate/guard.js" data-experience="lopati"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -8,7 +9,7 @@
 
     <link
         rel="preload"
-        href="assets/music/drone.mp3"
+        href="../assets/forlopati/music/drone.mp3"
         as="audio"
         type="audio/mpeg"
     >
@@ -112,14 +113,14 @@ body::after {
 }
 @font-face {
     font-family: "Determination";
-    src: url("assets/determination.woff2") format("woff2");
+    src: url("../assets/forlopati/determination.woff2") format("woff2");
     font-weight: 400;
     font-style: normal;
     font-display: block;
 }
 @font-face {
     font-family: "EramFont";
-    src: url("assets/Final_Fantasy_I_-_NES.woff2") format("woff2");
+    src: url("../assets/forlopati/Final_Fantasy_I_-_NES.woff2") format("woff2");
     font-weight: normal;
     font-style: normal;
 }
@@ -138,7 +139,7 @@ body::after {
         }
 
         body {
-            cursor: url(assets/heart.png), auto;
+            cursor: url(../assets/forlopati/heart.png), auto;
             user-select: none;
         }
 
@@ -416,7 +417,7 @@ paint-order: stroke fill;
 
     background: black;
 
-    cursor: url("assets/heart.png"), auto;
+    cursor: url("../assets/forlopati/heart.png"), auto;
 
     opacity: 1;
     transition: opacity 1.2s ease;
@@ -434,7 +435,7 @@ paint-order: stroke fill;
 
     image-rendering: pixelated;
 
-    cursor: url("assets/heart.png"), pointer;
+    cursor: url("../assets/forlopati/heart.png"), pointer;
 
     user-select: none;
     -webkit-user-drag: none;
@@ -631,7 +632,7 @@ paint-order: stroke fill;
 
     <img
         id="depthsBackground"
-        src="assets/depths.gif"
+        src="../assets/forlopati/depths.gif"
         alt=""
         aria-hidden="true"
         draggable="false"
@@ -651,14 +652,14 @@ paint-order: stroke fill;
 
     <img
         id="savePointButton"
-        src="assets/savepoint.gif"
+        src="../assets/forlopati/savepoint.gif"
         alt="Begin"
         draggable="false"
     >
 
     <img
         id="titleScreenLogo"
-        src="assets/titlescreenlogo.png"
+        src="../assets/forlopati/titlescreenlogo.png"
         alt="For Lopati"
         draggable="false"
     >
@@ -672,32 +673,32 @@ paint-order: stroke fill;
 </div>
 
     <audio id="myCastleMusic" preload="auto" loop playsinline>
-        <source src="assets/music/drone.mp3" type="audio/mpeg">
+        <source src="../assets/forlopati/music/drone.mp3" type="audio/mpeg">
     </audio>
 
     <audio id="eramMusic" preload="auto" loop>
-        <source src="assets/music/eram.mp3" type="audio/mpeg">
+        <source src="../assets/forlopati/music/eram.mp3" type="audio/mpeg">
     </audio>
 
     <audio id="buildUpSound" preload="auto">
          <source
-        src="assets/sounds/title-buildup.ogg" type="audio/ogg">
+        src="../assets/forlopati/sounds/title-buildup.ogg" type="audio/ogg">
     </audio>
 
     <audio id="titleSound" preload="auto">
-        <source src="assets/sounds/intronoise.ogg" type="audio/ogg">
+        <source src="../assets/forlopati/sounds/intronoise.ogg" type="audio/ogg">
     </audio>
 
     <audio id="selectSound" preload="auto">
-        <source src="assets/sounds/select.wav" type="audio/wav">
+        <source src="../assets/forlopati/sounds/select.wav" type="audio/wav">
     </audio>
 
     <audio id="eramTalkingSound" preload="auto">
-        <source src="assets/sounds/eram-talking.wav" type="audio/wav">
+        <source src="../assets/forlopati/sounds/eram-talking.wav" type="audio/wav">
     </audio>
 
     <audio id="eramFinishSound" preload="auto">
-        <source src="assets/sounds/eram-finish-talking.wav" type="audio/wav">
+        <source src="../assets/forlopati/sounds/eram-finish-talking.wav" type="audio/wav">
     </audio>
 
     <script>

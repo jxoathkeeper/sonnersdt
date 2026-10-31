@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="../namegate/guard.js" data-experience="lopati"></script>
     <meta charset="UTF-8">
 
     <meta
@@ -13,7 +14,7 @@
     <style>
 @font-face {
             font-family: "Determination";
-            src: url("assets/determination.woff2") format("woff2");
+            src: url("../assets/forlopati/determination.woff2") format("woff2");
             font-weight: normal;
             font-style: normal;
             font-display: block;
@@ -21,7 +22,7 @@
 
         @font-face {
             font-family: "EramFont";
-            src: url("assets/Final_Fantasy_I_-_NES.woff2") format("woff2");
+            src: url("../assets/forlopati/Final_Fantasy_I_-_NES.woff2") format("woff2");
             font-weight: normal;
             font-style: normal;
             font-display: swap;
@@ -42,16 +43,16 @@
         body {
             overflow-x: hidden;
             overflow-y: hidden;
-            cursor: url("assets/heart.png"), auto;
+            cursor: url("../assets/forlopati/heart.png"), auto;
         }
 
         body.timeline-active {
             overflow-x: auto;
-            cursor: url("assets/heart.png"), grab;
+            cursor: url("../assets/forlopati/heart.png"), grab;
         }
 
         body.dragging {
-            cursor: url("assets/heart.png"), grabbing;
+            cursor: url("../assets/forlopati/heart.png"), grabbing;
             user-select: none;
         }
 
@@ -158,7 +159,7 @@
         #introInstruction.visible {
             opacity: 1;
             pointer-events: auto;
-            cursor: url("assets/heart.png"), pointer;
+            cursor: url("../assets/forlopati/heart.png"), pointer;
         }
 
         #timeline {
@@ -267,7 +268,7 @@
             letter-spacing: 0.13em;
             text-align: left;
 
-            cursor: url("assets/heart.png"), pointer;
+            cursor: url("../assets/forlopati/heart.png"), pointer;
 
             text-shadow:
                 -2px 0 rgba(255, 40, 40, 0.65),
@@ -687,7 +688,7 @@ Hilarious...</p>
         <div class="timeline-frame">
             <img
                 id="timelineFountain"
-                src="assets/darkfountain.gif"
+                src="../assets/forlopati/darkfountain.gif"
                 alt=""
                 draggable="false"
                 aria-hidden="true"
@@ -695,7 +696,7 @@ Hilarious...</p>
 
             <img
                 class="timeline-image"
-                src="assets/timeline/undertaletimelinefordagif-v2.png?v=20260803-1"
+                src="../assets/forlopati/timeline/undertaletimelinefordagif-v2.png?v=20260803-1"
                 alt="Undertale and Deltarune development timeline"
                 draggable="false"
             >
@@ -717,15 +718,15 @@ Hilarious...</p>
     <div id="exitFade"></div>
 
     <audio id="timelineMusic" preload="auto" loop>
-        <source src="assets/music/beforethestory.mp3" type="audio/mpeg">
+        <source src="../assets/forlopati/music/beforethestory.mp3" type="audio/mpeg">
     </audio>
 
     <audio id="selectSound" preload="auto">
-        <source src="assets/sounds/select.wav" type="audio/wav">
+        <source src="../assets/forlopati/sounds/select.wav" type="audio/wav">
     </audio>
 
     <audio id="eramTalkSound" preload="auto">
-        <source src="assets/sounds/eram-talking.wav" type="audio/wav">
+        <source src="../assets/forlopati/sounds/eram-talking.wav" type="audio/wav">
     </audio>
 
     <script>

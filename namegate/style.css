@@ -1,0 +1,96 @@
+@font-face {
+  font-family: "NameGatePixel";
+  src: url("../assets/fornic/8bitoperator.otf.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html,body { height: 100%; min-height: 100%; margin: 0; background: black; overflow: hidden; }
+body { user-select: none; cursor: none; }
+
+#name-gate {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    color: #00ff21;
+    font-family: "NameGatePixel", monospace;
+    text-align: center;
+    cursor: none;
+    opacity: 1;
+    transition: opacity .25s steps(3, end);
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+#name-gate.accepted {
+    opacity: 0;
+}
+
+.name-gate-screen {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 520px;
+    font-size: clamp(18px, 1.7vw, 32px);
+    line-height: 1.18;
+    letter-spacing: 0;
+    text-shadow:
+        0 0 3px rgba(0, 255, 33, .72),
+        0 0 10px rgba(0, 255, 33, .22),
+        0 0 18px rgba(0, 255, 33, .12);
+}
+
+.name-gate-screen.hidden {
+    display: none;
+}
+
+.name-gate-screen > div {
+    display: block;
+}
+
+#name-gate-connected > div + div {
+    margin-top: 10px;
+}
+
+#name-gate-label {
+    margin-bottom: 42px;
+    letter-spacing: 0;
+}
+
+#name-gate-value {
+    min-width: 420px;
+    min-height: 42px;
+    letter-spacing: .06em;
+    white-space: pre;
+}
+
+
+/* On touch devices a tap opens the native keyboard without changing the pixel text. */
+#name-gate-mobile-input {
+  position: fixed;
+  bottom: 1px;
+  left: 1px;
+  opacity: 0.01;
+  width: 1px;
+  height: 1px;
+  border: none;
+  pointer-events: none;
+  z-index: -1;
+}
+@media (max-width: 560px) {
+  .name-gate-screen { min-width: 0; width: min(94vw, 520px); font-size: clamp(16px, 5vw, 26px); }
+  #name-gate-value { min-width: 0; min-height: 35px; font-size: clamp(14px, 4.4vw, 22px); }
+  #name-gate-label { margin-bottom: 28px; }
+}
+@media (pointer: coarse) {
+  #name-gate-entry::after { content: "TAP TO TYPE"; display: block; position: fixed; bottom: 9vh; left: 0; right: 0; color: #00ff21; text-align: center; font: 16px "NameGatePixel", monospace; }
+}

@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <script src="../namegate/guard.js" data-experience="lopati"></script>
     <meta charset="UTF-8">
 
     <meta
@@ -15,7 +16,7 @@
 @font-face {
             font-family: "EramFont";
             src:
-                url("assets/Final_Fantasy_I_-_NES.woff2")
+                url("../assets/forlopati/Final_Fantasy_I_-_NES.woff2")
                 format("woff2");
 
             font-weight: normal;
@@ -38,7 +39,7 @@
         }
 
         body {
-            cursor: url("assets/heart.png"), auto;
+            cursor: url("../assets/forlopati/heart.png"), auto;
             user-select: none;
         }
 
@@ -79,7 +80,7 @@
             animation: scanlineDrift 8s linear infinite;
         }
         #darkFountainBackground {
-            cursor: url("assets/heart.png"), pointer;
+            cursor: url("../assets/forlopati/heart.png"), pointer;
             position: fixed;
             inset: 0;
             z-index: 1;
@@ -684,7 +685,7 @@
             border: 0;
             background: transparent;
 
-            cursor: url("assets/heart.png"), pointer;
+            cursor: url("../assets/forlopati/heart.png"), pointer;
         }
 #finalDoorStarField {
             position: absolute;
@@ -760,7 +761,7 @@
         <div id="darkFountainBackground" aria-hidden="true">
             <img
                 id="darkFountainMain"
-                src="assets/darkfountain.gif"
+                src="../assets/forlopati/darkfountain.gif"
                 alt=""
                 draggable="false"
             >
@@ -784,7 +785,7 @@
 
                 <img
                     id="finalDoorImage"
-                    src="assets/doors/2018doorfordagif.png?v=20260803-10"
+                    src="../assets/forlopati/doors/2018doorfordagif.png?v=20260803-10"
                     alt="2018 — Open the door."
                     draggable="false"
                 >
@@ -823,23 +824,23 @@
     <div id="whiteExit"></div>
 
     <audio id="legendMusic" preload="auto" loop>
-        <source src="assets/music/thelegend.mp3" type="audio/mpeg">
+        <source src="../assets/forlopati/music/thelegend.mp3" type="audio/mpeg">
     </audio>
 
     <audio id="dtIntroNoise" preload="auto">
-        <source src="assets/sounds/dtintronoise.mp3" type="audio/mpeg">
+        <source src="../assets/forlopati/sounds/dtintronoise.mp3" type="audio/mpeg">
     </audio>
 
     <audio id="eramTalkingSound" preload="auto">
-        <source src="assets/sounds/eram-talking.wav" type="audio/wav">
+        <source src="../assets/forlopati/sounds/eram-talking.wav" type="audio/wav">
     </audio>
 
     <audio id="eramFinishTalkingSound" preload="auto">
-        <source src="assets/sounds/eram-finish-talking.wav" type="audio/wav">
+        <source src="../assets/forlopati/sounds/eram-finish-talking.wav" type="audio/wav">
     </audio>
 
     <audio id="selectSound" preload="auto">
-        <source src="assets/sounds/select.wav" type="audio/wav">
+        <source src="../assets/forlopati/sounds/select.wav" type="audio/wav">
     </audio>
 
     <script>
@@ -929,28 +930,28 @@ function buildFinalDoorStars() {
     if (!finalDoorStarField || finalDoorStarField.dataset.built === "true") return;
     finalDoorStarField.dataset.built = "true";
     const starGroups = [ {
-        source: "assets/star1.png",
+        source: "../assets/forlopati/star1.png",
         count: window.innerWidth >= 2200 ? 18 : 13,
         minSize: 28,
         maxSize: 44,
         minOpacity: 0.62,
         maxOpacity: 0.92
     }, {
-        source: "assets/star2.png",
+        source: "../assets/forlopati/star2.png",
         count: window.innerWidth >= 2200 ? 18 : 13,
         minSize: 14,
         maxSize: 22,
         minOpacity: 0.52,
         maxOpacity: 0.82
     }, {
-        source: "assets/star3.png",
+        source: "../assets/forlopati/star3.png",
         count: window.innerWidth >= 2200 ? 28 : 21,
         minSize: 8,
         maxSize: 14,
         minOpacity: 0.42,
         maxOpacity: 0.72
     }, {
-        source: "assets/star4.png",
+        source: "../assets/forlopati/star4.png",
         count: window.innerWidth >= 2200 ? 88 : 66,
         minSize: 3,
         maxSize: 8,

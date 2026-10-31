@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <script src="../namegate/guard.js" data-experience="lopati"></script>
     <meta charset="UTF-8">
 
     <meta
@@ -12,9 +13,9 @@
     <title>for lopati. final part.</title>
 
     <style>
-@font-face {
+        @font-face {
             font-family: "EramFont";
-            src: url("assets/Final_Fantasy_I_-_NES.woff2")
+            src: url("../assets/forlopati/Final_Fantasy_I_-_NES.woff2")
                  format("woff2");
 
             font-weight: normal;
@@ -34,12 +35,12 @@
             overflow: hidden;
             background: black;
             
-            cursor: url("assets/heart.png"), auto;
+            cursor: url("../assets/forlopati/heart.png"), auto;
         }
 
 @font-face {
     font-family: "Determination";
-    src: url("assets/determination.woff2") format("woff2");
+    src: url("../assets/forlopati/determination.woff2") format("woff2");
 
     font-weight: normal;
     font-style: normal;
@@ -47,6 +48,10 @@
         button {
             font: inherit;
         }
+
+        /*
+        Main page
+        */
 
         #page {
             position: fixed;
@@ -96,7 +101,7 @@
 
     image-rendering: pixelated;
 
-    cursor: url("assets/heart.png"), pointer;
+    cursor: url("../assets/forlopati/heart.png"), pointer;
 
     filter:
         brightness(1.08)
@@ -136,6 +141,10 @@
             drop-shadow(0 0 20px rgba(75, 108, 255, 0.60));
     }
 }
+
+        /*
+        Initial ERAM message
+        */
 
         #connectionScreen {
             position: fixed;
@@ -207,6 +216,10 @@
                 0 0 8px rgba(255, 255, 255, 0.4);
         }
 
+        /*
+        Start prompt
+        */
+
         #startPrompt {
             position: fixed;
             left: 50%;
@@ -246,6 +259,10 @@
                 visibility: hidden;
             }
         }
+
+        /*
+        Background logo
+        */
 
         #backgroundLogo {
             position: fixed;
@@ -289,6 +306,10 @@
         #backgroundLogo.ending {
             opacity: 0;
         }
+
+        /*
+        Main content stage
+        */
 
         #stage {
             position: fixed;
@@ -349,6 +370,10 @@
         #sectionContainer.hidden {
             opacity: 0;
         }
+
+        /*
+        Narrator text
+        */
 
 .eramDialogue {
     position: relative;
@@ -414,6 +439,11 @@
     line-height: 1.75;
 }
 
+        /*
+        Archive styling
+        */
+
+
         .archiveHeading {
             margin-bottom: 42px;
 
@@ -449,6 +479,10 @@
             letter-spacing: 0.03em;
         }
 
+        /*
+        Continue prompt
+        */
+
         #continuePrompt {
             position: fixed;
             right: 28px;
@@ -471,6 +505,10 @@
     animation:
         promptPulse 1.4s steps(1, end) infinite;
 }
+
+        /*
+        Snow — uses snowsprite.png.
+        */
 
         .snow {
             position: fixed;
@@ -503,6 +541,11 @@
                 transform: translate3d(var(--snow-drift), calc(100vh + 100px), 0) rotate(180deg);
             }
         }
+
+
+        /*
+        Falling prophecy symbols.
+        */
 
         .prophecyFall {
             position: fixed;
@@ -618,6 +661,10 @@
             }
         }
 
+        /*
+        Audio warning
+        */
+
         #audioError {
             position: fixed;
             left: 20px;
@@ -629,6 +676,10 @@
             color: #f26522;
             font-size: 13px;
         }
+
+        /*
+        Final fade and return save point
+        */
 
         #finalFade {
             position: fixed;
@@ -668,7 +719,7 @@
             width: clamp(88px, 12vw, 170px);
             height: auto;
             image-rendering: pixelated;
-            cursor: url("assets/heart.png"), pointer;
+            cursor: url("../assets/forlopati/heart.png"), pointer;
             filter:
                 drop-shadow(0 0 5px rgba(190,205,255,0.75))
                 drop-shadow(0 0 18px rgba(105,125,255,0.48));
@@ -697,6 +748,10 @@
             50% { transform: translateY(-5px); }
         }
 
+        /*
+        Mobile
+        */
+
         @media (max-width: 600px) {
             #sectionContainer {
                 width: 88vw;
@@ -717,14 +772,14 @@
                 min-height: 170px;
             }
         }
-</style>
+    </style>
 </head>
 
 <body>
 <div id="logoOpener">
     <img
         id="openerLogo"
-        src="assets/prophecy/prophecy2.png"
+        src="../assets/forlopati/prophecy/prophecy2.png"
         alt="Begin"
         draggable="false"
     >
@@ -734,7 +789,7 @@
 
         <img
             id="backgroundLogo"
-            src="assets/prophecy/prophecy2.png"
+            src="../assets/forlopati/prophecy/prophecy2.png"
             alt=""
             draggable="false"
         >
@@ -789,21 +844,21 @@
         playsinline
     >
         <source
-            src="assets/music/it-begins.mp3"
+            src="../assets/forlopati/music/it-begins.mp3"
             type="audio/mpeg"
         >
     </audio>
 
     <audio id="eramTalkingSound" preload="auto">
-        <source src="assets/sounds/eram-talking.wav" type="audio/wav">
+        <source src="../assets/forlopati/sounds/eram-talking.wav" type="audio/wav">
     </audio>
 
     <audio id="eramFinishTalkingSound" preload="auto">
-        <source src="assets/sounds/eram-finish-talking.wav" type="audio/wav">
+        <source src="../assets/forlopati/sounds/eram-finish-talking.wav" type="audio/wav">
     </audio>
 
     <audio id="selectSound" preload="auto">
-        <source src="assets/sounds/select.wav" type="audio/wav">
+        <source src="../assets/forlopati/sounds/select.wav" type="audio/wav">
     </audio>
 
     <div id="audioError">
@@ -815,226 +870,572 @@
     <div id="returnScreen">
         <img
             id="returnSavePoint"
-            src="assets/dtsavepoint.gif"
+            src="../assets/forlopati/dtsavepoint.gif"
             alt="Return to the beginning"
             draggable="false"
         >
     </div>
 
     <script>
-const logoOpener = document.getElementById("logoOpener");
+        const logoOpener =
+            document.getElementById("logoOpener");
 
-const openerLogo = document.getElementById("openerLogo");
+        const openerLogo =
+            document.getElementById("openerLogo");
 
-const page = document.getElementById("page");
+        const page =
+            document.getElementById("page");
 
-const connectionScreen = document.getElementById("connectionScreen");
+        const connectionScreen =
+            document.getElementById("connectionScreen");
 
-const connectionRed = document.getElementById("connectionRed");
+        const connectionRed =
+            document.getElementById("connectionRed");
 
-const connectionCyan = document.getElementById("connectionCyan");
+        const connectionCyan =
+            document.getElementById("connectionCyan");
 
-const connectionWhite = document.getElementById("connectionWhite");
+        const connectionWhite =
+            document.getElementById("connectionWhite");
 
-const startPrompt = document.getElementById("startPrompt");
+        const startPrompt =
+            document.getElementById("startPrompt");
 
-const backgroundLogo = document.getElementById("backgroundLogo");
+        const backgroundLogo =
+            document.getElementById("backgroundLogo");
 
-const stage = document.getElementById("stage");
+        const stage =
+            document.getElementById("stage");
 
-const sectionViewport = document.getElementById("sectionViewport");
+        const sectionViewport =
+            document.getElementById("sectionViewport");
 
-const sectionContainer = document.getElementById("sectionContainer");
+        const sectionContainer =
+            document.getElementById("sectionContainer");
 
-const continuePrompt = document.getElementById("continuePrompt");
+        const continuePrompt =
+            document.getElementById("continuePrompt");
 
-const music = document.getElementById("music");
+        const music =
+            document.getElementById("music");
 
-const audioError = document.getElementById("audioError");
+        const audioError =
+            document.getElementById("audioError");
 
-const finalFade = document.getElementById("finalFade");
+        const finalFade =
+            document.getElementById("finalFade");
 
-const returnScreen = document.getElementById("returnScreen");
+        const returnScreen =
+            document.getElementById("returnScreen");
 
-const returnSavePoint = document.getElementById("returnSavePoint");
+        const returnSavePoint =
+            document.getElementById("returnSavePoint");
 
-const eramTalkingSound = document.getElementById("eramTalkingSound");
+        const eramTalkingSound =
+            document.getElementById("eramTalkingSound");
 
-const eramFinishTalkingSound = document.getElementById("eramFinishTalkingSound");
+        const eramFinishTalkingSound =
+            document.getElementById("eramFinishTalkingSound");
 
-const selectSound = document.getElementById("selectSound");
+        const selectSound =
+            document.getElementById("selectSound");
 
-const connectionMessage = "THE CONNECTION HAS BEEN ESTABLISHED.";
+        const connectionMessage =
+            "THE CONNECTION HAS BEEN ESTABLISHED.";
 
-const sections = [ {
+        const sections = [
+{
     type: "narrator",
-    text: `You're almost there...\n\nYou must be feeling the excitement, too.`
-}, {
+
+    text:
+`You're almost there...
+
+You must be feeling the excitement, too.`
+},
+
+{
     type: "narrator",
-    text: `But in reality, you're late!`
-}, {
+
+    text:
+`But in reality, you're late!`
+},
+
+{
     type: "statement",
-    text: `WE BROKE THROUGH YOUR LAYER LONG AGO.`
-}, {
-    type: "archive",
-    html: `<section class="archive">\n\n    <div class="archiveHeading">\n        twitter. 2016\n    </div>\n\n    <article class="tweet">\n\n        <div class="tweetUser">\n            tobyfox @tobyfox — 31 Dec 2015\n        </div>\n\n        <div>\n            "The success of UNDERTALE has been incredible.\n            Thank you to the artists, the fans, and to my friends\n            for supporting me in 2015.\n\n            <br><br>\n\n            "But lately, something has left me feeling unsettled.\n            A burning, inexplicable feeling...\n\n            <br><br>\n\n            You could say,\n\n            <br><br>\n\n            "Its very nature is shrouded in darkness."\n        </div>\n\n    </article>\n\n</section>`
-}, {
-    type: "archive",
-    html: `<section class="archive">\n\n    <div class="archiveHeading">\n        twitter. 2018\n    </div>\n\n    <article class="tweet darkTweet">\n\n        <div class="tweetUser">\n            ______ @UnderTale — 30 Oct 2018\n        </div>\n\n        <div class="darkTweetText">\n            WELCOME.<br>\n            HAVE YOU BEEN LOOKING<br>\n            FOR ME?<br>\n\n            <br>\n\n            HOW WONDERFUL.<br>\n\n            <br>\n\n            I<br>\n            HAVE BEEN LOOKING FOR YOU<br>\n            AS WELL<br>\n\n            <br>\n\n            I HAVE SOMETHING<br>\n            SOMETHING I WANT TO SHOW YOU<br>\n\n            <br>\n\n            BUT<br>\n            IT IS NOT COMPLETE<br>\n            YET<br>\n\n            <br>\n\n            NO<br>\n            IT IS FAR FROM COMPLETE<br>\n\n            <br>\n\n            THUS<br>\n            I HAVE A SMALL FAVOUR TO ASK<br>\n            OF YOU.<br>\n\n            <br>\n\n            AT THAT TIME,<br>\n            I WILL ASK YOU A FEW QUESTIONS.<br>\n\n            <br>\n\n            THEN<br>\n            USING YOUR RESPONSES<br>\n            WE WILL APPROACH ITS REALIZATION.<br>\n\n            <br>\n\n            THANK YOU VERY MUCH FOR YOUR TIME.<br>\n\n            I WILL BE IN CONTACT AGAIN<br>\n            SOON.<br>\n\n            RETURN HERE IN [24] HOURS.\n        </div>\n\n    </article>\n\n</section>`
-}, {
-    type: "archive",
-    html: `<section class="archive">\n\n    <div class="archiveHeading">\n        twitter. 2018\n    </div>\n\n    <article class="tweet">\n\n        <div class="tweetUser">\n            tobyfox @tobyfox — 30 Oct 2018\n        </div>\n\n        <div>\n            "For those who completed UNDERTALE, it's really important\n            that you check @UNDERTALE 24 hours from now.\n\n            <br><br>\n\n            I want to make something new,\n            and it all begins with your feedback.\n\n            <br><br>\n\n            A Windows PC / MacOSX PC is needed."\n        </div>\n\n    </article>\n\n</section>`
-}, {
-    type: "archive",
-    html: `<section class="archive">\n\n    <div class="archiveHeading">\n        twitter. 2018\n    </div>\n\n    <article class="tweet darkTweet">\n\n        <div class="tweetUser">\n            ______ @UnderTale — 31 Oct 2018\n        </div>\n\n        <div class="darkTweetText">\n            THANK YOU<br>\n            FOR WAITING FOR SO LONG.<br>\n\n            <br>\n\n            AFTER ALL<br>\n            YOU AND I,<br>\n            WE HAVE BOTH BEEN WAITING<br>\n            SUCH A VERY LONG TIME.<br>\n\n            <br>\n\n            SO TO BE HERE<br>\n            FINALLY<br>\n            ON THE VERGE OF CONNECTION<br>\n\n            <br>\n\n            IS<br>\n            QUITE<br>\n            EXCITING<br>\n\n            <br>\n\n            I LOOK FORWARD<br>\n            TO CREATING<br>\n            A NEW FUTURE<br>\n            WITH YOU.<br>\n\n            <br>\n\n            NOW<br>\n            SHOW YOURSELF !<br>\n\n            <br>\n\n            DELTARUNE !<br>\n\n            <br>\n\n            deltarune.com<br>\n            deltarune.com<br>\n            deltarune.com\n        </div>\n\n    </article>\n\n</section>`
-}, {
+
+    text:
+`WE BROKE THROUGH YOUR LAYER LONG AGO.`
+},
+
+            {
+                type: "archive",
+
+                html:
+`<section class="archive">
+
+    <div class="archiveHeading">
+        twitter. 2016
+    </div>
+
+    <article class="tweet">
+
+        <div class="tweetUser">
+            tobyfox @tobyfox — 31 Dec 2015
+        </div>
+
+        <div>
+            "The success of UNDERTALE has been incredible.
+            Thank you to the artists, the fans, and to my friends
+            for supporting me in 2015.
+
+            <br><br>
+
+            "But lately, something has left me feeling unsettled.
+            A burning, inexplicable feeling...
+
+            <br><br>
+
+            You could say,
+
+            <br><br>
+
+            "Its very nature is shrouded in darkness."
+        </div>
+
+    </article>
+
+</section>`
+            },
+
+            {
+                type: "archive",
+
+                html:
+`<section class="archive">
+
+    <div class="archiveHeading">
+        twitter. 2018
+    </div>
+
+    <article class="tweet darkTweet">
+
+        <div class="tweetUser">
+            ______ @UnderTale — 30 Oct 2018
+        </div>
+
+        <div class="darkTweetText">
+            WELCOME.<br>
+            HAVE YOU BEEN LOOKING<br>
+            FOR ME?<br>
+
+            <br>
+
+            HOW WONDERFUL.<br>
+
+            <br>
+
+            I<br>
+            HAVE BEEN LOOKING FOR YOU<br>
+            AS WELL<br>
+
+            <br>
+
+            I HAVE SOMETHING<br>
+            SOMETHING I WANT TO SHOW YOU<br>
+
+            <br>
+
+            BUT<br>
+            IT IS NOT COMPLETE<br>
+            YET<br>
+
+            <br>
+
+            NO<br>
+            IT IS FAR FROM COMPLETE<br>
+
+            <br>
+
+            THUS<br>
+            I HAVE A SMALL FAVOUR TO ASK<br>
+            OF YOU.<br>
+
+            <br>
+
+            AT THAT TIME,<br>
+            I WILL ASK YOU A FEW QUESTIONS.<br>
+
+            <br>
+
+            THEN<br>
+            USING YOUR RESPONSES<br>
+            WE WILL APPROACH ITS REALIZATION.<br>
+
+            <br>
+
+            THANK YOU VERY MUCH FOR YOUR TIME.<br>
+
+            I WILL BE IN CONTACT AGAIN<br>
+            SOON.<br>
+
+            RETURN HERE IN [24] HOURS.
+        </div>
+
+    </article>
+
+</section>`
+            },
+
+            {
+                type: "archive",
+
+                html:
+`<section class="archive">
+
+    <div class="archiveHeading">
+        twitter. 2018
+    </div>
+
+    <article class="tweet">
+
+        <div class="tweetUser">
+            tobyfox @tobyfox — 30 Oct 2018
+        </div>
+
+        <div>
+            "For those who completed UNDERTALE, it's really important
+            that you check @UNDERTALE 24 hours from now.
+
+            <br><br>
+
+            I want to make something new,
+            and it all begins with your feedback.
+
+            <br><br>
+
+            A Windows PC / MacOSX PC is needed."
+        </div>
+
+    </article>
+
+</section>`
+            },
+
+            {
+                type: "archive",
+
+                html:
+`<section class="archive">
+
+    <div class="archiveHeading">
+        twitter. 2018
+    </div>
+
+    <article class="tweet darkTweet">
+
+        <div class="tweetUser">
+            ______ @UnderTale — 31 Oct 2018
+        </div>
+
+        <div class="darkTweetText">
+            THANK YOU<br>
+            FOR WAITING FOR SO LONG.<br>
+
+            <br>
+
+            AFTER ALL<br>
+            YOU AND I,<br>
+            WE HAVE BOTH BEEN WAITING<br>
+            SUCH A VERY LONG TIME.<br>
+
+            <br>
+
+            SO TO BE HERE<br>
+            FINALLY<br>
+            ON THE VERGE OF CONNECTION<br>
+
+            <br>
+
+            IS<br>
+            QUITE<br>
+            EXCITING<br>
+
+            <br>
+
+            I LOOK FORWARD<br>
+            TO CREATING<br>
+            A NEW FUTURE<br>
+            WITH YOU.<br>
+
+            <br>
+
+            NOW<br>
+            SHOW YOURSELF !<br>
+
+            <br>
+
+            DELTARUNE !<br>
+
+            <br>
+
+            deltarune.com<br>
+            deltarune.com<br>
+            deltarune.com
+        </div>
+
+    </article>
+
+</section>`
+            },
+
+{
     type: "endingSequence",
-    lines: [ `This was the day when the gates had finally opened up.\nWe've been waiting for you ever since.`, `It seems like our world can have a profound impact in the lives of people like you.`, `Let's see...`, `I want to see if you actually change!`, `Don't be afraid,\nThis is gonna be great!`, `See you soon...` ]
-} ];
 
-let openerStarted = false;
+    lines: [
+        `This was the day when the gates had finally opened up.
+We've been waiting for you ever since.`,
 
-let connectionIndex = 0;
+        `It seems like our world can have a profound impact in the lives of people like you.`,
 
-let sectionIndex = 0;
+        `Let's see...`,
 
-let experienceStarted = false;
+        `I want to see if you actually change!`,
 
-let sectionReady = false;
+        `Don't be afraid,
+This is gonna be great!`,
 
-let sectionTyping = false;
-
-let finalSequenceStarted = false;
-
-let endingSequenceActive = false;
-
-let snowInterval = null;
-
-let prophecyInterval = null;
-
-let narratorTimer = null;
-
-let musicFadeTimer = null;
-
-let archiveFinishImmediately = null;
-
-let returnScreenActive = false;
-
-let secretCodeBuffer = "";
-
-const secretCode = "723";
-
-const prophecyImages = [ "assets/prophecy/prophecy1.png", "assets/prophecy/prophecy3.png", "assets/prophecy/prophecy4.png", "assets/prophecy/prophecy5.png", "assets/prophecy/prophecy6.png", "assets/prophecy/prophecy7.png", "assets/prophecy/prophecy8.png", "assets/prophecy/prophecy9.png", "assets/prophecy/prophecy10.png", "assets/prophecy/prophecy11.png", "assets/prophecy/prophecy12.png", "assets/prophecy/prophecy13.png", "assets/prophecy/prophecy14.png", "assets/prophecy/prophecy15.png", "assets/prophecy/prophecy16.png" ];
-
-const connectionTypingSpeed = 65;
-
-const narratorTypingSpeed = 50;
-
-function safelyPlay(audio, volume = 1, restart = true) {
-    if (!audio) return;
-    audio.volume = volume;
-    if (restart) audio.currentTime = 0;
-    const attempt = audio.play();
-    if (attempt !== void 0) attempt.catch(() => {});
+        `See you soon...`
+    ]
 }
+        ];
 
-function playEramBleep(character) {
-    if (character === " " || character === "\n") return;
-    safelyPlay(eramTalkingSound, 0.58);
-}
+        let openerStarted = false;
 
-function playEramFinishSound() {
-    safelyPlay(eramFinishTalkingSound, 0.72);
-}
+        let connectionIndex = 0;
+        let sectionIndex = 0;
 
-function updateConnectionText(text) {
-    connectionRed.textContent = text;
-    connectionCyan.textContent = text;
-    connectionWhite.textContent = text;
-}
+        let experienceStarted = false;
+        let sectionReady = false;
+        let sectionTyping = false;
+        let finalSequenceStarted = false;
+        let endingSequenceActive = false;
 
-function typeConnectionMessage() {
-    updateConnectionText("");
-    function typeNextCharacter() {
-        if (connectionIndex >= connectionMessage.length) {
-            playEramFinishSound();
-            setTimeout(() => {
-                startPrompt.classList.add("visible");
-            }, 900);
-            return;
+        let snowInterval = null;
+        let prophecyInterval = null;
+        let narratorTimer = null;
+        let musicFadeTimer = null;
+        let archiveFinishImmediately = null;
+        let returnScreenActive = false;
+
+        let secretCodeBuffer = "";
+        const secretCode = "723";
+
+        const prophecyImages = [
+            "../assets/forlopati/prophecy/prophecy1.png",
+            "../assets/forlopati/prophecy/prophecy3.png",
+            "../assets/forlopati/prophecy/prophecy4.png",
+            "../assets/forlopati/prophecy/prophecy5.png",
+            "../assets/forlopati/prophecy/prophecy6.png",
+            "../assets/forlopati/prophecy/prophecy7.png",
+            "../assets/forlopati/prophecy/prophecy8.png",
+            "../assets/forlopati/prophecy/prophecy9.png",
+            "../assets/forlopati/prophecy/prophecy10.png",
+            "../assets/forlopati/prophecy/prophecy11.png",
+            "../assets/forlopati/prophecy/prophecy12.png",
+            "../assets/forlopati/prophecy/prophecy13.png",
+            "../assets/forlopati/prophecy/prophecy14.png",
+            "../assets/forlopati/prophecy/prophecy15.png",
+            "../assets/forlopati/prophecy/prophecy16.png"
+        ];
+
+        const connectionTypingSpeed = 65;
+        const narratorTypingSpeed = 50;
+
+        function safelyPlay(audio, volume = 1, restart = true) {
+            if (!audio) return;
+            audio.volume = volume;
+            if (restart) audio.currentTime = 0;
+            const attempt = audio.play();
+            if (attempt !== undefined) attempt.catch(() => {});
         }
-        const visibleText = connectionMessage.slice(0, connectionIndex + 1);
-        updateConnectionText(visibleText);
-        playEramBleep(connectionMessage[connectionIndex]);
-        connectionIndex++;
-        setTimeout(typeNextCharacter, connectionTypingSpeed);
-    }
-    typeNextCharacter();
-}
 
-function fadeMusicTo(targetVolume, duration, callback) {
-    clearInterval(musicFadeTimer);
-    const initialVolume = music.volume;
-    const difference = targetVolume - initialVolume;
-    const steps = 100;
-    const interval = duration / steps;
-    let currentStep = 0;
-    musicFadeTimer = setInterval(() => {
-        currentStep++;
-        music.volume = Math.max(0, Math.min(1, initialVolume + difference * (currentStep / steps)));
-        if (currentStep >= steps) {
+        function playEramBleep(character) {
+            if (character === " " || character === "\n") return;
+            safelyPlay(eramTalkingSound, 0.58);
+        }
+
+        function playEramFinishSound() {
+            safelyPlay(
+                eramFinishTalkingSound,
+                0.72
+            );
+        }
+
+        function updateConnectionText(text) {
+            connectionRed.textContent = text;
+            connectionCyan.textContent = text;
+            connectionWhite.textContent = text;
+        }
+
+        function typeConnectionMessage() {
+            updateConnectionText("");
+
+            function typeNextCharacter() {
+                if (
+                    connectionIndex >=
+                    connectionMessage.length
+                ) {
+                    playEramFinishSound();
+
+                    setTimeout(() => {
+                        startPrompt.classList.add("visible");
+                    }, 900);
+
+                    return;
+                }
+
+                const visibleText =
+                    connectionMessage.slice(
+                        0,
+                        connectionIndex + 1
+                    );
+
+                updateConnectionText(visibleText);
+                playEramBleep(connectionMessage[connectionIndex]);
+                connectionIndex++;
+
+                setTimeout(
+                    typeNextCharacter,
+                    connectionTypingSpeed
+                );
+            }
+
+            typeNextCharacter();
+        }
+
+        function fadeMusicTo(
+            targetVolume,
+            duration,
+            callback
+        ) {
             clearInterval(musicFadeTimer);
-            music.volume = targetVolume;
-            if (callback) callback();
+
+            const initialVolume = music.volume;
+            const difference =
+                targetVolume - initialVolume;
+
+            const steps = 100;
+            const interval = duration / steps;
+
+            let currentStep = 0;
+
+            musicFadeTimer = setInterval(() => {
+                currentStep++;
+
+                music.volume = Math.max(
+                    0,
+                    Math.min(
+                        1,
+                        initialVolume +
+                        difference *
+                        (currentStep / steps)
+                    )
+                );
+
+                if (currentStep >= steps) {
+                    clearInterval(musicFadeTimer);
+                    music.volume = targetVolume;
+
+                    if (callback) {
+                        callback();
+                    }
+                }
+            }, interval);
         }
-    }, interval);
-}
 
-function startExperience() {
-    if (experienceStarted || !startPrompt.classList.contains("visible")) return;
-    experienceStarted = true;
-    safelyPlay(selectSound, 0.85);
-    startPrompt.classList.remove("visible");
-    backgroundLogo.classList.add("visible");
-    backgroundLogo.classList.add("bright");
-    logoOpener.classList.add("playing");
-    connectionScreen.classList.add("hidden");
-    page.classList.add("visible");
-    music.volume = 0;
-    const playAttempt = music.play();
-    if (playAttempt !== void 0) playAttempt.then(() => fadeMusicTo(1, 14000)).catch(error => {
-        audioError.style.display = "block";
-    });
-    setTimeout(() => {
-        connectionScreen.style.display = "none";
-        logoOpener.style.display = "none";
-    }, 1800);
-    setTimeout(() => {
-        backgroundLogo.classList.remove("bright");
-    }, 4500);
-    setTimeout(() => {
-        stage.classList.add("visible");
-        beginSnow();
-        beginProphecyRain();
-        showSection(0);
-    }, 5600);
-}
+        function startExperience() {
+            if (experienceStarted || !startPrompt.classList.contains("visible")) return;
 
+            experienceStarted = true;
+            safelyPlay(selectSound, 0.85);
+            startPrompt.classList.remove("visible");
+
+            /*
+            Keep the first prophecy symbol continuously visible.
+            The background copy appears before the opener copy fades,
+            creating a seamless handoff.
+            */
+            backgroundLogo.classList.add("visible");
+            backgroundLogo.classList.add("bright");
+
+            logoOpener.classList.add("playing");
+
+            connectionScreen.classList.add("hidden");
+            page.classList.add("visible");
+
+            music.volume = 0;
+            const playAttempt = music.play();
+            if (playAttempt !== undefined) {
+                playAttempt.then(() => fadeMusicTo(1, 14000)).catch(error => {
+                    console.error("Music playback failed:", error);
+                    audioError.style.display = "block";
+                });
+            }
+
+            setTimeout(() => {
+                connectionScreen.style.display = "none";
+                logoOpener.style.display = "none";
+            }, 1800);
+
+            /*
+            The symbol remains bright while the piano begins.
+            It dims only shortly before ERAM starts speaking.
+            */
+            setTimeout(() => {
+                backgroundLogo.classList.remove("bright");
+            }, 4500);
+
+            setTimeout(() => {
+                stage.classList.add("visible");
+                beginSnow();
+                beginProphecyRain();
+                showSection(0);
+            }, 5600);
+        }
+        
 function typeNarratorText(text) {
     clearTimeout(narratorTimer);
-    sectionContainer.innerHTML = `\n<div class="eramDialogue">\n    <p class="eramDialogueLayer eramRed"></p>\n    <p class="eramDialogueLayer eramCyan"></p>\n    <p class="eramDialogueLayer eramWhite"></p>\n</div>\n`;
-    const red = sectionContainer.querySelector(".eramRed");
-    const cyan = sectionContainer.querySelector(".eramCyan");
-    const white = sectionContainer.querySelector(".eramWhite");
+
+sectionContainer.innerHTML = `
+<div class="eramDialogue">
+    <p class="eramDialogueLayer eramRed"></p>
+    <p class="eramDialogueLayer eramCyan"></p>
+    <p class="eramDialogueLayer eramWhite"></p>
+</div>
+`;
+
+const red =
+    sectionContainer.querySelector(".eramRed");
+
+const cyan =
+    sectionContainer.querySelector(".eramCyan");
+
+const white =
+    sectionContainer.querySelector(".eramWhite");
+
     sectionTyping = true;
     sectionReady = false;
+
     let index = 0;
+
     function typeNextCharacter() {
         if (index >= text.length) {
             sectionTyping = false;
             playEramFinishSound();
+
             if (sectionIndex === 0 || sectionIndex === 1) {
                 sectionReady = false;
+
                 setTimeout(() => {
                     showSection(sectionIndex + 1);
                 }, 1800);
@@ -1042,47 +1443,96 @@ function typeNarratorText(text) {
                 sectionReady = true;
                 continuePrompt.classList.add("visible");
             }
+
             return;
         }
-        const visible = text.slice(0, index + 1);
-        red.textContent = visible;
-        cyan.textContent = visible;
-        white.textContent = visible;
+
+const visible = text.slice(0, index + 1);
+
+red.textContent = visible;
+cyan.textContent = visible;
+white.textContent = visible;
+
         const character = text[index];
         playEramBleep(character);
         index++;
+
         let delay = narratorTypingSpeed;
-        if (character === "." || character === "!" || character === "?") delay = 300; else if (character === "," || character === ";") delay = 160;
-        narratorTimer = setTimeout(typeNextCharacter, delay);
+
+        if (
+            character === "." ||
+            character === "!" ||
+            character === "?"
+        ) {
+            delay = 300;
+        } else if (
+            character === "," ||
+            character === ";"
+        ) {
+            delay = 160;
+        }
+
+        narratorTimer = setTimeout(
+            typeNextCharacter,
+            delay
+        );
     }
+
     typeNextCharacter();
 }
 
 function typeStatementText(text) {
     clearTimeout(narratorTimer);
-    sectionContainer.innerHTML = `\n        <div class="eramDialogue statementDialogue">\n            <p class="eramDialogueLayer eramRed"></p>\n            <p class="eramDialogueLayer eramCyan"></p>\n            <p class="eramDialogueLayer eramWhite"></p>\n        </div>\n    `;
-    const red = sectionContainer.querySelector(".eramRed");
-    const cyan = sectionContainer.querySelector(".eramCyan");
-    const white = sectionContainer.querySelector(".eramWhite");
+
+    sectionContainer.innerHTML = `
+        <div class="eramDialogue statementDialogue">
+            <p class="eramDialogueLayer eramRed"></p>
+            <p class="eramDialogueLayer eramCyan"></p>
+            <p class="eramDialogueLayer eramWhite"></p>
+        </div>
+    `;
+
+    const red =
+        sectionContainer.querySelector(".eramRed");
+
+    const cyan =
+        sectionContainer.querySelector(".eramCyan");
+
+    const white =
+        sectionContainer.querySelector(".eramWhite");
+
     sectionTyping = true;
     sectionReady = false;
+
     let index = 0;
+
     function typeNextCharacter() {
         if (index >= text.length) {
             sectionTyping = false;
             sectionReady = true;
+
             playEramFinishSound();
+
             continuePrompt.classList.add("visible");
             return;
         }
-        const visible = text.slice(0, index + 1);
+
+        const visible =
+            text.slice(0, index + 1);
+
         red.textContent = visible;
         cyan.textContent = visible;
         white.textContent = visible;
+
         playEramBleep(text[index]);
         index++;
-        narratorTimer = setTimeout(typeNextCharacter, narratorTypingSpeed);
+
+        narratorTimer = setTimeout(
+            typeNextCharacter,
+            narratorTypingSpeed
+        );
     }
+
     typeNextCharacter();
 }
 
@@ -1090,80 +1540,174 @@ function playEndingSequence(lines) {
     endingSequenceActive = true;
     sectionTyping = true;
     sectionReady = false;
+
     continuePrompt.classList.remove("visible");
+
     let lineIndex = 0;
     let lineFinished = false;
+
     function typeCurrentEndingLine() {
         const line = lines[lineIndex];
-        sectionContainer.innerHTML = `\n            <div class="eramDialogue">\n                <p class="eramDialogueLayer eramRed"></p>\n                <p class="eramDialogueLayer eramCyan"></p>\n                <p class="eramDialogueLayer eramWhite"></p>\n            </div>\n        `;
-        const red = sectionContainer.querySelector(".eramRed");
-        const cyan = sectionContainer.querySelector(".eramCyan");
-        const white = sectionContainer.querySelector(".eramWhite");
+
+        sectionContainer.innerHTML = `
+            <div class="eramDialogue">
+                <p class="eramDialogueLayer eramRed"></p>
+                <p class="eramDialogueLayer eramCyan"></p>
+                <p class="eramDialogueLayer eramWhite"></p>
+            </div>
+        `;
+
+        const red =
+            sectionContainer.querySelector(".eramRed");
+
+        const cyan =
+            sectionContainer.querySelector(".eramCyan");
+
+        const white =
+            sectionContainer.querySelector(".eramWhite");
+
         red.textContent = "";
         cyan.textContent = "";
         white.textContent = "";
+
         sectionContainer.classList.remove("hidden");
+
         let characterIndex = 0;
         lineFinished = false;
         sectionTyping = true;
         sectionReady = false;
+
         function finishCurrentLine() {
-            if (lineFinished) return;
+            if (lineFinished) {
+                return;
+            }
+
             lineFinished = true;
             sectionTyping = false;
             sectionReady = true;
+
             playEramFinishSound();
-            if (line.includes("Don't be afraid") && line.includes("This is gonna be great")) beginEnvironmentalFade();
-            continuePrompt.classList.add("visible");
+
+            /*
+            Once this reassurance finishes, begin gently clearing the
+            snowfall and prophecy imagery before "See you soon..."
+            */
+            if (
+                line.includes("Don't be afraid") &&
+                line.includes("This is gonna be great")
+            ) {
+                beginEnvironmentalFade();
+            }
+
+            continuePrompt.classList.add(
+                "visible"
+            );
         }
+
         function typeNextCharacter() {
             if (characterIndex >= line.length) {
                 finishCurrentLine();
                 return;
             }
-            const visible = line.slice(0, characterIndex + 1);
+
+            const visible =
+                line.slice(0, characterIndex + 1);
+
             red.textContent = visible;
             cyan.textContent = visible;
             white.textContent = visible;
-            const character = line[characterIndex];
+
+            const character =
+                line[characterIndex];
+
             playEramBleep(character);
+
             characterIndex++;
+
             let delay = narratorTypingSpeed;
-            if (character === "." || character === "!" || character === "?") delay = 300; else if (character === "," || character === ";") delay = 160;
-            narratorTimer = setTimeout(typeNextCharacter, delay);
+
+            if (
+                character === "." ||
+                character === "!" ||
+                character === "?"
+            ) {
+                delay = 300;
+            } else if (
+                character === "," ||
+                character === ";"
+            ) {
+                delay = 160;
+            }
+
+            narratorTimer = setTimeout(
+                typeNextCharacter,
+                delay
+            );
         }
+
+        /*
+        Clicking while this line is typing reveals it immediately.
+        */
         archiveFinishImmediately = () => {
-            if (lineFinished) return;
+            if (lineFinished) {
+                return;
+            }
+
             clearTimeout(narratorTimer);
+
             red.textContent = line;
             cyan.textContent = line;
             white.textContent = line;
+
             finishCurrentLine();
         };
+
         typeNextCharacter();
     }
-    window.advanceEndingLine = function() {
-        if (!endingSequenceActive) return false;
+
+    /*
+    advanceEndingLine() is called by the normal click handler.
+    */
+    window.advanceEndingLine = function () {
+        if (!endingSequenceActive) {
+            return false;
+        }
+
         if (sectionTyping && archiveFinishImmediately) {
             archiveFinishImmediately();
             return true;
         }
-        if (!sectionReady) return true;
-        continuePrompt.classList.remove("visible");
+
+        if (!sectionReady) {
+            return true;
+        }
+
+        continuePrompt.classList.remove(
+            "visible"
+        );
+
         sectionReady = false;
+
         if (lineIndex >= lines.length - 1) {
             endingSequenceActive = false;
             archiveFinishImmediately = null;
+
             finishExperience();
             return true;
         }
-        sectionContainer.classList.add("hidden");
+
+        sectionContainer.classList.add(
+            "hidden"
+        );
+
         setTimeout(() => {
             lineIndex++;
             typeCurrentEndingLine();
         }, 700);
+
         return true;
     };
+
     typeCurrentEndingLine();
 }
 
@@ -1171,43 +1715,45 @@ function showArchive(html) {
     clearTimeout(narratorTimer);
     archiveFinishImmediately = null;
     sectionContainer.innerHTML = html;
+
     const walker = document.createTreeWalker(sectionContainer, NodeFilter.SHOW_TEXT);
     const textEntries = [];
     let currentNode;
+
     while (currentNode = walker.nextNode()) {
         const cleanedText = currentNode.nodeValue.replace(/\s+/g, " ").trim();
         if (cleanedText.length > 0) {
-            textEntries.push({
-                node: currentNode,
-                text: cleanedText
-            });
+            textEntries.push({ node: currentNode, text: cleanedText });
             currentNode.nodeValue = "";
         }
     }
+
     sectionTyping = true;
     sectionReady = false;
     let entryIndex = 0;
     let characterIndex = 0;
     let archiveFinished = false;
+
     function finishArchive() {
         if (archiveFinished) return;
         archiveFinished = true;
         clearTimeout(narratorTimer);
-        textEntries.forEach(entry => {
-            entry.node.nodeValue = entry.text;
-        });
+        textEntries.forEach(entry => { entry.node.nodeValue = entry.text; });
         sectionTyping = false;
         sectionReady = true;
         archiveFinishImmediately = null;
         continuePrompt.classList.add("visible");
     }
+
     archiveFinishImmediately = finishArchive;
+
     function typeNextCharacter() {
         if (archiveFinished) return;
         if (entryIndex >= textEntries.length) {
             finishArchive();
             return;
         }
+
         const entry = textEntries[entryIndex];
         if (characterIndex >= entry.text.length) {
             entryIndex++;
@@ -1215,227 +1761,450 @@ function showArchive(html) {
             narratorTimer = setTimeout(typeNextCharacter, 80);
             return;
         }
+
         entry.node.nodeValue += entry.text[characterIndex];
         characterIndex++;
         narratorTimer = setTimeout(typeNextCharacter, 14);
     }
+
     typeNextCharacter();
 }
 
-function showSection(index) {
-    sectionIndex = index;
-    sectionReady = false;
-    continuePrompt.classList.remove("visible");
-    sectionContainer.classList.add("hidden");
-    setTimeout(() => {
-        sectionViewport.scrollTop = 0;
-        const section = sections[index];
-        if (section.type === "narrator") typeNarratorText(section.text); else if (section.type === "statement") typeStatementText(section.text); else if (section.type === "endingSequence") playEndingSequence(section.lines); else showArchive(section.html);
-        sectionContainer.classList.remove("hidden");
-    }, 800);
+        function showSection(index) {
+            sectionIndex = index;
+            sectionReady = false;
+
+            continuePrompt.classList.remove("visible");
+            sectionContainer.classList.add("hidden");
+
+            setTimeout(() => {
+                sectionViewport.scrollTop = 0;
+
+                const section = sections[index];
+
+if (section.type === "narrator") {
+    typeNarratorText(section.text);
+
+} else if (section.type === "statement") {
+    typeStatementText(section.text);
+
+} else if (section.type === "endingSequence") {
+    playEndingSequence(section.lines);
+
+} else {
+    showArchive(section.html);
 }
+                sectionContainer.classList.remove("hidden");
+            }, 800);
+        }
 
 function completeNarratorImmediately() {
     const section = sections[sectionIndex];
-    if (!sectionTyping) return false;
-    if (section.type !== "narrator" && section.type !== "statement") return false;
+
+    if (!sectionTyping) {
+        return false;
+    }
+
+    if (
+        section.type !== "narrator" &&
+        section.type !== "statement"
+    ) {
+        return false;
+    }
+
     clearTimeout(narratorTimer);
-    const red = sectionContainer.querySelector(".eramRed");
-    const cyan = sectionContainer.querySelector(".eramCyan");
-    const white = sectionContainer.querySelector(".eramWhite");
+
+    const red =
+        sectionContainer.querySelector(".eramRed");
+
+    const cyan =
+        sectionContainer.querySelector(".eramCyan");
+
+    const white =
+        sectionContainer.querySelector(".eramWhite");
+
     red.textContent = section.text;
     cyan.textContent = section.text;
     white.textContent = section.text;
+
     sectionTyping = false;
     sectionReady = true;
+
     continuePrompt.classList.add("visible");
+
     return true;
 }
 
-function advanceSection() {
-    if (!experienceStarted || finalSequenceStarted) return;
-    if (endingSequenceActive && typeof window.advanceEndingLine === "function") {
-        window.advanceEndingLine();
-        return;
-    }
-    if (sectionTyping) {
-        const section = sections[sectionIndex];
-        if (section.type === "archive" && archiveFinishImmediately) {
-            archiveFinishImmediately();
-            return;
-        }
-        completeNarratorImmediately();
-        return;
-    }
-    if (!sectionReady) return;
-    sectionReady = false;
-    continuePrompt.classList.remove("visible");
-    if (sectionIndex >= sections.length - 1) {
-        finishExperience();
-        return;
-    }
-    showSection(sectionIndex + 1);
+        function advanceSection() {
+if (
+    !experienceStarted ||
+    finalSequenceStarted
+) {
+    return;
 }
 
-function beginEnvironmentalFade() {
-    if (snowInterval !== null) {
-        clearInterval(snowInterval);
-        snowInterval = null;
-    }
-    if (prophecyInterval !== null) {
-        clearInterval(prophecyInterval);
-        prophecyInterval = null;
-    }
-    document.querySelectorAll(".snow").forEach(snowflake => {
-        snowflake.classList.add("ending");
-    });
-    document.querySelectorAll(".prophecyFall").forEach(symbol => {
-        symbol.classList.add("ending");
-    });
+if (
+    endingSequenceActive &&
+    typeof window.advanceEndingLine === "function"
+) {
+    window.advanceEndingLine();
+    return;
 }
 
-function finishExperience() {
-    if (finalSequenceStarted) return;
-    finalSequenceStarted = true;
-    continuePrompt.classList.remove("visible");
-    sectionContainer.classList.add("hidden");
-    stage.classList.remove("visible");
-    backgroundLogo.classList.add("ending");
-    beginEnvironmentalFade();
-    fadeMusicTo(0, 6000, () => {
-        music.pause();
-        music.currentTime = 0;
-    });
-    setTimeout(() => finalFade.classList.add("active"), 900);
-    setTimeout(() => {
-        returnScreenActive = true;
-        returnScreen.classList.add("visible");
-    }, 6800);
-}
-
-function createProphecySymbol() {
-    if (finalSequenceStarted) return;
-    const symbol = document.createElement("img");
-    symbol.className = "prophecyFall";
-    symbol.src = prophecyImages[Math.floor(Math.random() * prophecyImages.length)];
-    symbol.alt = "";
-    symbol.draggable = false;
-    const size = Math.random() * 150 + 70;
-    const opacity = Math.random() * 0.28 + 0.13;
-    const duration = Math.random() * 8 + 7;
-    const drift = Math.random() * 240 - 120;
-    const startRotation = Math.random() * 20 - 10;
-    const endRotation = startRotation + (Math.random() * 80 - 40);
-    symbol.style.left = Math.random() * 96 - 3 + "vw";
-    symbol.style.setProperty("--prophecy-size", size.toFixed(0) + "px");
-    symbol.style.setProperty("--prophecy-opacity", opacity.toFixed(2));
-    symbol.style.setProperty("--prophecy-duration", duration.toFixed(2) + "s");
-    symbol.style.setProperty("--prophecy-drift", drift.toFixed(0) + "px");
-    symbol.style.setProperty("--prophecy-start-rotation", startRotation.toFixed(1) + "deg");
-    symbol.style.setProperty("--prophecy-end-rotation", endRotation.toFixed(1) + "deg");
-    symbol.style.setProperty("--prophecy-brightness", (Math.random() * 0.28 + 0.55).toFixed(2));
-    symbol.style.setProperty("--prophecy-blur", (Math.random() * 2.4 + 1.2).toFixed(1) + "px");
-    document.body.appendChild(symbol);
-    setTimeout(() => symbol.remove(), (duration + 1.5) * 1000);
-}
-
-function beginProphecyRain() {
-    if (prophecyInterval !== null) return;
-    for (let index = 0; index < 10; index++) setTimeout(createProphecySymbol, index * 120);
-    prophecyInterval = setInterval(createProphecySymbol, 310);
-}
-
-function createSnowflake() {
-    if (finalSequenceStarted) return;
-    const snowflake = document.createElement("img");
-    snowflake.className = "snow";
-    snowflake.src = "assets/snowsprite.png";
-    snowflake.alt = "";
-    snowflake.draggable = false;
-    snowflake.style.left = Math.random() * 100 + "vw";
-    snowflake.style.setProperty("--snow-opacity", (Math.random() * 0.55 + 0.30).toFixed(2));
-    snowflake.style.setProperty("--snow-size", (Math.random() * 18 + 10).toFixed(0) + "px");
-    snowflake.style.setProperty("--snow-drift", (Math.random() * 80 - 40).toFixed(0) + "px");
-    snowflake.style.animationDuration = (Math.random() * 3.5 + 3.5).toFixed(2) + "s";
-    document.body.appendChild(snowflake);
-    setTimeout(() => snowflake.remove(), 13000);
-}
-
-function beginSnow() {
-    if (snowInterval !== null) return;
-    snowInterval = setInterval(createSnowflake, 145);
-}
-
-document.addEventListener("click", event => {
-    if (returnScreenActive) {
-        if (event.target === returnSavePoint) {
-            safelyPlay(selectSound, 0.90);
-            setTimeout(() => {
-                window.location.href = "index.html";
-            }, 220);
-        }
-        return;
-    }
-    if (!openerStarted) {
-        if (event.target !== openerLogo) return;
-        openerStarted = true;
-        safelyPlay(selectSound, 0.85);
-        eramTalkingSound.volume = 0;
-        const unlockAttempt = eramTalkingSound.play();
-        if (unlockAttempt !== void 0) unlockAttempt.then(() => {
-            eramTalkingSound.pause();
-            eramTalkingSound.currentTime = 0;
-            eramTalkingSound.volume = 0.58;
-        }).catch(() => {
-            eramTalkingSound.volume = 0.58;
-        });
-        logoOpener.classList.add("hidden");
-        setTimeout(() => {
-            typeConnectionMessage();
-        }, 1800);
-        return;
-    }
-    safelyPlay(selectSound, 0.80);
-    if (!experienceStarted) {
-        startExperience();
-        return;
-    }
-    advanceSection();
-});
-
-document.addEventListener("keydown", event => {
-    if (returnScreenActive) {
-        if (/^[0-9]$/.test(event.key)) {
-            secretCodeBuffer = (secretCodeBuffer + event.key).slice(-secretCode.length);
-            if (secretCodeBuffer === secretCode) {
-                safelyPlay(selectSound, 0.90);
-                returnScreen.classList.remove("visible");
-                setTimeout(() => {
-                    window.location.href = "page7.html";
-                }, 900);
+            if (sectionTyping) {
+                const section = sections[sectionIndex];
+                if (section.type === "archive" && archiveFinishImmediately) {
+                    archiveFinishImmediately();
+                    return;
+                }
+                completeNarratorImmediately();
+                return;
             }
-        }
-        return;
-    }
-    if (event.key !== "Enter" && event.key !== "z" && event.key !== "Z") return;
-    event.preventDefault();
-    if (!openerStarted) return;
-    safelyPlay(selectSound, 0.80);
-    if (!experienceStarted) {
-        startExperience();
-        return;
-    }
-    advanceSection();
-});
 
-window.addEventListener("load", () => {
-    eramTalkingSound.load();
-    eramFinishTalkingSound.load();
-    selectSound.load();
-    music.load();
-    page.classList.remove("visible");
-});
-</script>
+            if (!sectionReady) {
+                return;
+            }
+
+            sectionReady = false;
+            continuePrompt.classList.remove("visible");
+
+            if (sectionIndex >= sections.length - 1) {
+                finishExperience();
+                return;
+            }
+
+            showSection(sectionIndex + 1);
+        }
+
+        function beginEnvironmentalFade() {
+            /*
+            Stop creating new pieces, but allow everything already
+            on screen to finish with a slow visual fade.
+            */
+            if (snowInterval !== null) {
+                clearInterval(snowInterval);
+                snowInterval = null;
+            }
+
+            if (prophecyInterval !== null) {
+                clearInterval(prophecyInterval);
+                prophecyInterval = null;
+            }
+
+            document
+                .querySelectorAll(".snow")
+                .forEach(snowflake => {
+                    snowflake.classList.add("ending");
+                });
+
+            document
+                .querySelectorAll(".prophecyFall")
+                .forEach(symbol => {
+                    symbol.classList.add("ending");
+                });
+        }
+
+        function finishExperience() {
+            if (finalSequenceStarted) return;
+            finalSequenceStarted = true;
+            continuePrompt.classList.remove("visible");
+            sectionContainer.classList.add("hidden");
+            stage.classList.remove("visible");
+            backgroundLogo.classList.add("ending");
+
+            beginEnvironmentalFade();
+
+            fadeMusicTo(0, 6000, () => {
+                music.pause();
+                music.currentTime = 0;
+            });
+
+            setTimeout(() => finalFade.classList.add("active"), 900);
+            setTimeout(() => {
+                returnScreenActive = true;
+                returnScreen.classList.add("visible");
+            }, 6800);
+        }
+
+        function createProphecySymbol() {
+            if (finalSequenceStarted) {
+                return;
+            }
+
+            const symbol =
+                document.createElement("img");
+
+            symbol.className = "prophecyFall";
+
+            symbol.src =
+                prophecyImages[
+                    Math.floor(
+                        Math.random() *
+                        prophecyImages.length
+                    )
+                ];
+
+            symbol.alt = "";
+            symbol.draggable = false;
+
+            const size =
+                Math.random() * 150 + 70;
+
+            const opacity =
+                Math.random() * 0.28 + 0.13;
+
+            const duration =
+                Math.random() * 8 + 7;
+
+            const drift =
+                Math.random() * 240 - 120;
+
+            const startRotation =
+                Math.random() * 20 - 10;
+
+            const endRotation =
+                startRotation +
+                (
+                    Math.random() * 80 - 40
+                );
+
+            symbol.style.left =
+                (
+                    Math.random() * 96 - 3
+                ) + "vw";
+
+            symbol.style.setProperty(
+                "--prophecy-size",
+                size.toFixed(0) + "px"
+            );
+
+            symbol.style.setProperty(
+                "--prophecy-opacity",
+                opacity.toFixed(2)
+            );
+
+            symbol.style.setProperty(
+                "--prophecy-duration",
+                duration.toFixed(2) + "s"
+            );
+
+            symbol.style.setProperty(
+                "--prophecy-drift",
+                drift.toFixed(0) + "px"
+            );
+
+            symbol.style.setProperty(
+                "--prophecy-start-rotation",
+                startRotation.toFixed(1) + "deg"
+            );
+
+            symbol.style.setProperty(
+                "--prophecy-end-rotation",
+                endRotation.toFixed(1) + "deg"
+            );
+
+            symbol.style.setProperty(
+                "--prophecy-brightness",
+                (
+                    Math.random() * 0.28 +
+                    0.55
+                ).toFixed(2)
+            );
+
+            /*
+            All falling panels are intentionally soft-focused.
+            prophecy2 is the fixed central symbol and is never assigned
+            this class or blur.
+            */
+            symbol.style.setProperty(
+                "--prophecy-blur",
+                (
+                    Math.random() * 2.4 +
+                    1.2
+                ).toFixed(1) + "px"
+            );
+
+            document.body.appendChild(symbol);
+
+            setTimeout(
+                () => symbol.remove(),
+                (duration + 1.5) * 1000
+            );
+        }
+
+        function beginProphecyRain() {
+            if (prophecyInterval !== null) {
+                return;
+            }
+
+            for (let index = 0; index < 10; index++) {
+                setTimeout(
+                    createProphecySymbol,
+                    index * 120
+                );
+            }
+
+            prophecyInterval =
+                setInterval(
+                    createProphecySymbol,
+                    310
+                );
+        }
+
+        function createSnowflake() {
+            if (finalSequenceStarted) return;
+            const snowflake = document.createElement("img");
+            snowflake.className = "snow";
+            snowflake.src = "../assets/forlopati/snowsprite.png";
+            snowflake.alt = "";
+            snowflake.draggable = false;
+            snowflake.style.left = Math.random() * 100 + "vw";
+            snowflake.style.setProperty("--snow-opacity", (Math.random() * 0.55 + 0.30).toFixed(2));
+            snowflake.style.setProperty("--snow-size", (Math.random() * 18 + 10).toFixed(0) + "px");
+            snowflake.style.setProperty("--snow-drift", (Math.random() * 80 - 40).toFixed(0) + "px");
+            snowflake.style.animationDuration = (Math.random() * 3.5 + 3.5).toFixed(2) + "s";
+            document.body.appendChild(snowflake);
+            setTimeout(() => snowflake.remove(), 13000);
+        }
+
+        function beginSnow() {
+            if (snowInterval !== null) {
+                return;
+            }
+
+            snowInterval =
+                setInterval(createSnowflake, 145);
+        }
+
+        document.addEventListener("click", event => {
+            if (returnScreenActive) {
+                if (event.target === returnSavePoint) {
+                    safelyPlay(selectSound, 0.90);
+
+                    setTimeout(() => {
+                        window.location.href = "index.html";
+                    }, 220);
+                }
+
+                return;
+            }
+
+            /*
+            First click: click the floating logo.
+            This unlocks ERAM's bleep, but it-begins.mp3
+            remains silent.
+            */
+            if (!openerStarted) {
+                if (event.target !== openerLogo) {
+                    return;
+                }
+
+                openerStarted = true;
+
+                safelyPlay(selectSound, 0.85);
+
+                eramTalkingSound.volume = 0;
+
+                const unlockAttempt =
+                    eramTalkingSound.play();
+
+                if (unlockAttempt !== undefined) {
+                    unlockAttempt
+                        .then(() => {
+                            eramTalkingSound.pause();
+                            eramTalkingSound.currentTime = 0;
+                            eramTalkingSound.volume = 0.58;
+                        })
+                        .catch(() => {
+                            eramTalkingSound.volume = 0.58;
+                        });
+                }
+
+                logoOpener.classList.add("hidden");
+
+                setTimeout(() => {
+                    typeConnectionMessage();
+                }, 1800);
+
+                return;
+            }
+
+            safelyPlay(selectSound, 0.80);
+
+            /*
+            After the connection message, clicking
+            CLICK TO PLAY THE PIANO calls startExperience().
+            That is the ONLY place it-begins.mp3 starts.
+            */
+            if (!experienceStarted) {
+                startExperience();
+                return;
+            }
+
+            advanceSection();
+        });
+
+        document.addEventListener("keydown", event => {
+            /*
+            Secret: type 723 while the final white save point is visible.
+            */
+            if (returnScreenActive) {
+                if (/^[0-9]$/.test(event.key)) {
+                    secretCodeBuffer =
+                        (secretCodeBuffer + event.key)
+                        .slice(-secretCode.length);
+
+                    if (secretCodeBuffer === secretCode) {
+                        safelyPlay(selectSound, 0.90);
+
+                        returnScreen.classList.remove("visible");
+
+                        setTimeout(() => {
+                            window.location.href = "page7.html";
+                        }, 900);
+                    }
+                }
+
+                return;
+            }
+
+            if (
+                event.key !== "Enter" &&
+                event.key !== "z" &&
+                event.key !== "Z"
+            ) {
+                return;
+            }
+
+            event.preventDefault();
+
+            if (!openerStarted) {
+                return;
+            }
+
+            safelyPlay(selectSound, 0.80);
+
+            if (!experienceStarted) {
+                startExperience();
+                return;
+            }
+
+            advanceSection();
+        });
+
+        window.addEventListener("load", () => {
+            eramTalkingSound.load();
+            eramFinishTalkingSound.load();
+            selectSound.load();
+            music.load();
+
+            /*
+            The floating logo is the only opening screen.
+            Nothing else begins until it is clicked.
+            */
+            page.classList.remove("visible");
+        });
+    </script>
 
 </body>
 

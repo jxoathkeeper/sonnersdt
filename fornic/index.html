@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../namegate/guard.js" data-experience="nic"></script>
+    <title>For Nic</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main id="game-container">
+        <canvas id="game" width="1920" height="1080"></canvas>
+
+        <img id="depths-background" src="../assets/fornic/depths.gif" alt="">
+        <p id="voice-dialogue"></p>
+
+        <canvas
+            id="undertale-stage"
+            width="1920"
+            height="1080"
+            aria-label="UNDERTALE-style shop scene"
+        ></canvas>
+
+        <div id="start-screen">
+            
+            <button id="start-button">CLICK TO BEGIN</button>
+
+            <img
+                id="title-screen-logo"
+                src="../assets/fornic/fornictitlescreen.png"
+                alt="For Nic"
+                draggable="false"
+            >
+
+            <div id="title-start-prompt"></div>
+        </div>
+
+        <img id="heart-cursor" src="../assets/fornic/spr_heart_0.png" alt="">
+
+        <section id="eram-page3" aria-label="ERAM scene">
+            <div id="eram-page3-fountain" aria-hidden="true">
+                <img
+                    id="eram-page3-fountain-image"
+                    src="../assets/fornic/darkfountain.gif"
+                    alt=""
+                    draggable="false"
+                >
+                <div id="eram-page3-shade"></div>
+                <div id="eram-page3-prompt">CLICK TO CONTINUE</div>
+            </div>
+
+            <div id="eram-page3-door" aria-hidden="true">
+                <img
+                    id="eram-page3-door-image"
+                    src="../assets/fornic/art/gerson-door.png"
+                    alt=""
+                    draggable="false"
+                >
+            </div>
+
+            <div id="eram-page3-dialogue" class="hidden">
+                <p id="eram-page3-red" class="eram-page3-layer"></p>
+                <p id="eram-page3-cyan" class="eram-page3-layer"></p>
+                <p id="eram-page3-white" class="eram-page3-layer"></p>
+            </div>
+
+            <img
+                id="eram-page3-cursor"
+                src="../assets/fornic/spr_heart_0.png"
+                alt=""
+                draggable="false"
+            >
+        </section>
+
+        <section
+            id="page5-stage"
+            aria-label="Snowy sanctuary scene"
+        >
+            <div id="page5-picture">
+                
+                <img
+                    id="page5-background"
+                    class="page5-background-layer page5-background-base"
+                    src="../assets/fornic/art/page5/background-layer.gif"
+                    alt=""
+                    draggable="false"
+                >
+
+                <img
+                    class="page5-background-layer page5-background-red"
+                    src="../assets/fornic/art/page5/background-layer.gif"
+                    alt=""
+                    draggable="false"
+                    aria-hidden="true"
+                >
+
+                <img
+                    class="page5-background-layer page5-background-blue"
+                    src="../assets/fornic/art/page5/background-layer.gif"
+                    alt=""
+                    draggable="false"
+                    aria-hidden="true"
+                >
+
+                <div
+                    id="page5-stars"
+                    aria-hidden="true"
+                ></div>
+
+                <div
+                    id="page5-ground-scroll"
+                    aria-hidden="true"
+                >
+                    <canvas
+                        id="page5-ground-canvas"
+                    ></canvas>
+                </div>
+
+                <div
+                    id="page5-snow"
+                    aria-hidden="true"
+                ></div>
+
+                <div
+                    id="page5-dialogue"
+                    class="hidden"
+                    aria-live="polite"
+                >
+                    <p
+                        id="page5-dialogue-red"
+                        class="page5-dialogue-layer"
+                    ></p>
+
+                    <p
+                        id="page5-dialogue-cyan"
+                        class="page5-dialogue-layer"
+                    ></p>
+
+                    <p
+                        id="page5-dialogue-white"
+                        class="page5-dialogue-layer"
+                    ></p>
+                </div>
+
+                <div
+                    id="page5-vcr-roll"
+                    aria-hidden="true"
+                ></div>
+
+                <div
+                    id="page5-scanlines"
+                    aria-hidden="true"
+                ></div>
+
+                <div
+                    id="page5-vignette"
+                    aria-hidden="true"
+                ></div>
+            </div>
+        </section>
+
+        <section
+            id="page6-stage"
+            aria-label="Flowey and the six human souls"
+        >
+            
+            <div
+                id="page6-flowey-wrap"
+                aria-hidden="true"
+            >
+                <img
+                    id="page6-flowey-sprite"
+                    src="../assets/fornic/art/flowey/spr_flowey_riseanim_0.png"
+                    alt=""
+                    draggable="false"
+                >
+
+                <img
+                    id="page6-flowey-face-overlay"
+                    alt=""
+                    draggable="false"
+                    aria-hidden="true"
+                >
+
+                <img
+                    id="page6-flowey-mouth-overlay"
+                    alt=""
+                    draggable="false"
+                    aria-hidden="true"
+                >
+            </div>
+
+            <div
+                id="page6-souls"
+                aria-hidden="true"
+            ></div>
+
+            <div
+                id="page6-dialogue"
+                aria-live="polite"
+            >
+                <span
+                    id="page6-dialogue-star"
+                    aria-hidden="true"
+                >*</span>
+
+                <span
+                    id="page6-dialogue-text"
+                ></span>
+            </div>
+
+            <div
+                id="page6-whitewash"
+                aria-hidden="true"
+            ></div>
+        </section>
+
+        <section
+            id="page7-stage"
+            aria-label="Eram in the depths"
+        >
+            
+            <img
+                id="page7-bg-gif"
+                src="../assets/fornic/page7bggif.gif"
+                alt=""
+                draggable="false"
+                aria-hidden="true"
+            >
+
+            <div
+                id="page7-dialogue"
+                aria-live="polite"
+            >
+                <span
+                    id="page7-dialogue-red"
+                    class="page7-dialogue-layer"
+                    aria-hidden="true"
+                ></span>
+
+                <span
+                    id="page7-dialogue-cyan"
+                    class="page7-dialogue-layer"
+                    aria-hidden="true"
+                ></span>
+
+                <span
+                    id="page7-dialogue-text"
+                    class="page7-dialogue-layer"
+                ></span>
+            </div>
+        </section>
+
+        <section
+            id="secret-stage"
+            aria-label="Secret final page"
+        >
+            <div id="secret-world" aria-hidden="true">
+                <div id="secret-stars"></div>
+                <div id="secret-bridge"></div>
+                <img
+                    id="secret-tower"
+                    src="../assets/fornic/art/forgottenman/tower.png"
+                    alt=""
+                    draggable="false"
+                >
+                <img
+                    id="secret-fountain"
+                    src="../assets/fornic/art/forgottenman/fountainpg5.gif"
+                    alt=""
+                    draggable="false"
+                >
+                <div id="secret-ground"></div>
+                <img
+                    id="secret-tree"
+                    src="../assets/fornic/art/forgottenman/redtree.gif"
+                    alt=""
+                    draggable="false"
+                >
+                <div id="secret-petals"></div>
+                <div id="secret-actors"></div>
+            </div>
+
+            <button
+                id="secret-soul-button"
+                type="button"
+                aria-label="Press the soul"
+            >
+                <img
+                    id="secret-soul"
+                    src="../assets/fornic/spr_heart_0.png"
+                    alt="SOUL"
+                    draggable="false"
+                >
+                <span id="secret-soul-prompt">CLICK THE SOUL</span>
+            </button>
+
+            <div id="secret-dialogue" aria-live="polite">
+                <span id="secret-dialogue-text"></span>
+            </div>
+
+            <div id="secret-choice" aria-live="polite">
+                <div id="secret-choice-question"></div>
+                <div id="secret-choice-row">
+                    <span class="secret-choice-option" data-choice="yes">YES</span>
+                    <img
+                        id="secret-choice-heart"
+                        src="../assets/fornic/spr_heart_2.png"
+                        alt=""
+                        draggable="false"
+                    >
+                    <span class="secret-choice-option" data-choice="no">NO</span>
+                </div>
+            </div>
+
+            <div id="secret-final-line" aria-live="polite"></div>
+        </section>
+
+        <div
+            id="page-transition-white"
+            aria-hidden="true"
+        ></div>
+    </main>
+
+    <script src="scripts/voice.js"></script>
+    <script src="scripts/undertale-shop.js"></script>
+    <script src="sequences/snowdin.js"></script>
+    <script src="sequences/gerson-page4.js"></script>
+    <script src="sequences/eram-page3.js"></script>
+    <script src="sequences/page5.js"></script>
+    <script src="sequences/page6.js"></script>
+    <script src="sequences/page7.js"></script>
+    <script src="sequences/secret-page.js"></script>
+    <script src="scripts/game.js"></script>
+</body>
+</html>
